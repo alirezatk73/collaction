@@ -6,7 +6,7 @@ const size = {
   h2: wp(7),
   h3: wp(6),
   h4: wp(5),
-  h5: wp(4),
+  h5: wp(4.5),
   input: wp(4),
   regular: wp(3),
   medium: wp(2),

@@ -1,15 +1,15 @@
-import { createActions } from 'reduxsauce';
+import { createActions } from "reduxsauce";
 
 const { Types, Creators } = createActions({
   // Fetch user informations
-  fetchUser: null,
+  fetchUsers: null,
   // The operation has started and is loading
-  fetchUserLoading: null,
+  fetchUsersLoading: null,
   // User informations were successfully fetched
-  fetchUserSuccess: ['user'],
+  fetchUsersSuccess: ["users"],
   // An error occurred
-  fetchUserFailure: ['errorMessage'],
+  fetchUsersFailure: ["errorMessage"],
 });
 
-export const ExampleTypes = Types;
+export const UsersTypes = Types;
 export default Creators;

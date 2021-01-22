@@ -1,13 +1,13 @@
-import { applyMiddleware, createStore } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import { persistReducer, persistStore } from 'redux-persist';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import storage from '@react-native-community/async-storage';
+import { applyMiddleware, createStore } from "redux";
+import createSagaMiddleware from "redux-saga";
+import { persistReducer, persistStore } from "redux-persist";
+import { composeWithDevTools } from "redux-devtools-extension";
+import storage from "@react-native-community/async-storage";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage: storage,
-  blacklist: ['startUp'],
+  blacklist: [""],
 };
 
 export default (rootReducer, rootSaga) => {
@@ -23,7 +23,7 @@ export default (rootReducer, rootSaga) => {
 
   const store = createStore(
     persistedReducer,
-    composeWithDevTools(applyMiddleware(...middleware)),
+    composeWithDevTools(applyMiddleware(...middleware))
   );
   const persistor = persistStore(store);
 

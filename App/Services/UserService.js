@@ -1,50 +1,45 @@
-import axios from 'axios';
-import { Config } from 'App/Config';
-import { is, curryN, gte } from 'ramda';
+import axios from "axios";
+import { Config } from "App/Config";
+import { is, curryN, gte } from "ramda";
 
-const isWithin = curryN(3, (min, max, value) => {
-  const isNumber = is(Number);
-  return (
-    isNumber(min) &&
-    isNumber(max) &&
-    isNumber(value) &&
-    gte(value, min) &&
-    gte(max, value)
-  );
-});
-const in200s = isWithin(200, 299);
-
-const userApiClient = axios.create({
+const ApiClient = axios.create({
   /**
    * Import the config from the App/Config/index.js file
    */
   baseURL: Config.API_URL,
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
+    Accept: "application/json",
+    "Content-Type": "application/json",
   },
   timeout: 3000,
 });
 
-function fetchUser() {
-  // Simulate an error 50% of the time just for testing purposes
-  if (Math.random() > 0.5) {
-    return new Promise(function (resolve, reject) {
-      resolve(null);
-    });
-  }
+async function fetchUsers() {
+  const response = await ApiClient.get("/users");
+  return response.data;
+}
+async function fetchUserById(id) {
+  const response = await ApiClient.get(`/users/${id}`);
+  return response.data;
+}
+async function deleteUser(id) {
+  const response = await ApiClient.delete(`/users/${id}`);
+  return response.data;
+}
+async function postUser(data) {
+  const response = await ApiClient.post(`/users`, data);
+  return response.data;
+}
 
-  let number = Math.floor(Math.random() / 0.1) + 1;
-
-  return userApiClient.get(number.toString()).then((response) => {
-    if (in200s(response.status)) {
-      return response.data;
-    }
-
-    return null;
-  });
+async function updateUser(id, data) {
+  const response = await ApiClient.put(`/users/${id}`, data);
+  return response.data;
 }
 
 export const userService = {
-  fetchUser,
+  fetchUsers,
+  fetchUserById,
+  deleteUser,
+  postUser,
+  updateUser,
 };

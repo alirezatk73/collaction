@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Fabricio Saciloto",
+      "phone": 905526796872,
+      "city": "istanbul,Turkey"
+    },
+    {
+      "id": 2,
+      "name": "Flavio Jesus",
+      "phone": 556423233692,
+      "city": "SaoPaulo,Brazil"
+    },
+    {
+      "name": "Diego Rodrigues",
+      "phone": "01967497492",
+      "city": "Vegas,USA",
+      "id": 3
+    },
+    {
+      "name": "malik",
+      "phone": "96389749327",
+      "city": "Dubai,UAE",
+      "id": 4
+    }
+  ]
+}

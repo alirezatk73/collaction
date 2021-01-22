@@ -6,6 +6,7 @@ const size = {
   h2: wp(7),
   h3: wp(6),
   h4: wp(5),
+  h5: wp(4),
   input: wp(4),
   regular: wp(3),
   medium: wp(2),
@@ -28,6 +29,10 @@ export default StyleSheet.create({
   h4: {
     fontSize: size.h4,
     fontFamily: "Poppins-Regular",
+  },
+  h5: {
+    fontSize: size.h5,
+    fontFamily: "Poppins-Bold",
   },
   input: {
     fontSize: size.input,

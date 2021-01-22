@@ -17,7 +17,7 @@
     "lint-check": "eslint .",
     "rename": "react-native-rename",
     "postinstall": "npx jetify",
-    "clean": "cd android && ./gradlew clean && ./gradlew cleanBuildcache && cd .. && cd ios && rm -rf build/ && xcodebuild clean && watchman watch-del-all && cd ..",
+    "clean": "cd ios && rm -rf build/ && xcodebuild clean && watchman watch-del-all && cd ..",
     "pod": "cd ios && pod install && cd ..",
     "pod-update": "pod --repo-update"
   },
